@@ -1,0 +1,8 @@
+apache-airflow==2.8.1
+pandas==2.1.4
+numpy==1.26.3
+psycopg2-binary==2.9.9
+sqlalchemy==2.0.25
+faker==22.0.0
+python-dateutil==2.8.2
+great-expectations==0.18.8
