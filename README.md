@@ -7,6 +7,29 @@
 ![PostgreSQL](https://img.shields.io/badge/Warehouse-PostgreSQL-4169E1?logo=postgresql&logoColor=white)
 ![Docker](https://img.shields.io/badge/Runtime-Docker%20Compose-2496ED?logo=docker&logoColor=white)
 
+
+## Airflow DAG graph view
+![Airflow DAG graph view](screenshot images/image.png)
+All 6 tasks succeeded
+
+## Airflow task logs
+
+### `validate` task's log output
+![the `validate` task's log output showing quarantine counts](screenshot images/image-1.png)
+
+### `load` task's log
+![the `load` task's log showing the incremental-load row counts](screenshot images/image-2.png)
+
+## Warehouse schema
+
+![`\dt` / table list from `psql` showing `dim_warehouse`, `dim_partner`, `dim_route`, `dim_date`, `fact_deliveries`.](image-3.png)
+
+`\dt` / table list from `psql` showing `dim_warehouse`, `dim_partner`, `dim_route`, `dim_date`, `fact_deliveries`.
+
+## A query result
+![On-time delivery rate by warehouse : query result](screenshot images/image-4.png)
+On-time delivery rate by warehouse : query result
+
 ### Highlights
 
 - **Real orchestration, not a script that runs top to bottom** : a 6-task Airflow DAG (`generate → extract → validate → transform → load → quality_checks`) with retries, execution timeouts, and XCom-passed state between tasks, scheduled daily.
@@ -131,28 +154,6 @@ docker-compose down -v     # stop containers and wipe the Postgres volumes (fres
 - **Runtime**: Docker Compose  4 containers (Airflow webserver, Airflow scheduler, metadata Postgres, warehouse Postgres)
 
 ---
-
-## Screenshots to add
-
-A picture of this actually running is worth more than the description above — add these to a `screenshots/` folder and reference them here:
-
-1. **Airflow DAG graph view** — the 6-task graph mid-run or completed, showing the task dependency chain and green "success" states.
-2. **Airflow task logs** — the `validate` task's log output showing quarantine counts, and the `load` task's log showing the incremental-load row counts.
-3. **Quarantine file contents** — a screenshot of one `data/quarantine/*.csv` file opened in a spreadsheet/editor, showing the `_quarantine_reason` column populated with real reasons — this is the single best proof that the pipeline handles bad data deliberately, not accidentally.
-4. **Warehouse schema** — the star schema visualized in a SQL client (most have an ER-diagram or table-relationship view), or just a `\dt` / table list from `psql` showing `dim_warehouse`, `dim_partner`, `dim_route`, `dim_date`, `fact_deliveries`.
-5. **A query result** — `sql/analytical_queries.sql` Query 1 or 2 run in a SQL client with results visible, e.g. the on-time delivery rate by warehouse.
-
-Embed them like:
-```markdown
-![Airflow DAG graph - all 6 tasks succeeded](screenshots/dag_graph.png)
-![Validate task log showing quarantined record counts](screenshots/validate_log.png)
-![Quarantined records with failure reasons attached](screenshots/quarantine_file.png)
-![Star schema tables in the warehouse](screenshots/warehouse_schema.png)
-![On-time delivery rate by warehouse - query result](screenshots/query_result.png)
-```
-
----
-
 
 ## Notes on the synthetic data
 
