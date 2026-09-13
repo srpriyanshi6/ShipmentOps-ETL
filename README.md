@@ -9,25 +9,26 @@
 
 
 ## Airflow DAG graph view
-![Airflow DAG graph view](screenshot images/image.png)
+![Airflow DAG graph view](screenshots/image.png)
+
 All 6 tasks succeeded
 
 ## Airflow task logs
 
 ### `validate` task's log output
-![the `validate` task's log output showing quarantine counts](screenshot images/image-1.png)
+![the `validate` task's log output showing quarantine counts](screenshots/image-1.png)
 
 ### `load` task's log
-![the `load` task's log showing the incremental-load row counts](screenshot images/image-2.png)
+![the `load` task's log showing the incremental-load row counts](screenshots/image-2.png)
 
 ## Warehouse schema
 
-![`\dt` / table list from `psql` showing `dim_warehouse`, `dim_partner`, `dim_route`, `dim_date`, `fact_deliveries`.](image-3.png)
+![`\dt` / table list from `psql` showing `dim_warehouse`, `dim_partner`, `dim_route`, `dim_date`, `fact_deliveries`.](screenshots/image-3.png)
 
 `\dt` / table list from `psql` showing `dim_warehouse`, `dim_partner`, `dim_route`, `dim_date`, `fact_deliveries`.
 
 ## A query result
-![On-time delivery rate by warehouse : query result](screenshot images/image-4.png)
+![On-time delivery rate by warehouse : query result](screenshots/image-4.png)
 On-time delivery rate by warehouse : query result
 
 ### Highlights
